@@ -1,2 +1,3 @@
 it:
-  abandoned_cart_subject: Abandoned Cart
+  spree:
+    abandoned_cart_subject: Carrello Abbandonato
