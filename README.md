@@ -1,5 +1,4 @@
-[![Build Status](https://travis-ci.org/ssnickolay/spree_abandoned_cart_email.svg?branch=3-1-stable)](https://travis-ci.org/ssnickolay/spree_abandoned_cart_email)
-[![Gem Version](https://badge.fury.io/rb/spree_abandoned_cart_email.svg)](http://badge.fury.io/rb/spree_abandoned_cart_email)
+[![Build Status](https://travis-ci.org/ssnickolay/spree_abandoned_carts.svg?branch=3-1-stable)](https://travis-ci.org/ssnickolay/spree_abandoned_carts)
 
 SpreeAbandonedCarts
 ===================
