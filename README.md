@@ -42,9 +42,20 @@ SpreeAbandonedCarts::Config.tap do |config|
 end
 ```
 
+You can perform the processing of the abandoned carts at any time:
+
+```ruby
+Spree::AbandonedCartService.perform
+```
+
+or use the auto processing solution (based on Sidekiq):
+
+```ruby
+Spree::AbandonedCartWorker.perfrom
+```
+
 To modify the email, you just have to override `Spree.t(:abandoned_cart_subject)`
 and `app/views/spree/abandoned_cart_mailer/abandoned_cart_email.html.erb`.
-
 
 Testing
 -------
@@ -63,4 +74,4 @@ Simply add this require statement to your spec_helper:
 require 'spree_abandoned_carts/factories'
 ```
 
-Copyright (c) 2015 Alessandro Lepore, released under the New BSD License
+Copyright (c) 2015-2017 Alessandro Lepore, released under the New BSD License
