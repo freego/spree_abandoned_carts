@@ -3,7 +3,7 @@
 SpreeAbandonedCarts
 ===================
 
-Take some action for abandoned carts.
+Take some action for abandoned (incompleted) carts.
 
 Override `Spree::Order#abandoned_cart_actions` with your logic.
 By default an email is sent, see `AbandonedCartMailer`.
@@ -33,8 +33,6 @@ There are some preferences you can change (defaults are shown here):
 
 ```ruby
 SpreeAbandonedCarts::Config.tap do |config|
-  # order states to check for abandonment
-  config.abandoned_states = [:cart, :address, :delivery, :payment, :confirm]
   # when an order can be marked as abandoned
   config.abandoned_after_minutes = 1440 # 24 hours
   # how often the sidekiq worker should run
