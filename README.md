@@ -1,7 +1,9 @@
+[![Build Status](https://travis-ci.org/ssnickolay/spree_abandoned_carts.svg?branch=3-1-stable)](https://travis-ci.org/ssnickolay/spree_abandoned_carts)
+
 SpreeAbandonedCarts
 ===================
 
-Take some action for abandoned carts.
+Take some action for abandoned (incompleted) carts.
 
 Override `Spree::Order#abandoned_cart_actions` with your logic.
 By default an email is sent, see `AbandonedCartMailer`.
@@ -31,8 +33,6 @@ There are some preferences you can change (defaults are shown here):
 
 ```ruby
 SpreeAbandonedCarts::Config.tap do |config|
-  # order states to check for abandonment
-  config.abandoned_states = [:cart, :address, :delivery, :payment, :confirm]
   # when an order can be marked as abandoned
   config.abandoned_after_minutes = 1440 # 24 hours
   # how often the sidekiq worker should run
@@ -40,9 +40,20 @@ SpreeAbandonedCarts::Config.tap do |config|
 end
 ```
 
+You can perform the processing of the abandoned carts at any time:
+
+```ruby
+Spree::AbandonedCartService.perform
+```
+
+or use the auto processing solution (based on Sidekiq):
+
+```ruby
+Spree::AbandonedCartWorker.perfrom
+```
+
 To modify the email, you just have to override `Spree.t(:abandoned_cart_subject)`
 and `app/views/spree/abandoned_cart_mailer/abandoned_cart_email.html.erb`.
-
 
 Testing
 -------
@@ -61,4 +72,4 @@ Simply add this require statement to your spec_helper:
 require 'spree_abandoned_carts/factories'
 ```
 
-Copyright (c) 2015 Alessandro Lepore, released under the New BSD License
+Copyright (c) 2015-2017 Alessandro Lepore, released under the New BSD License

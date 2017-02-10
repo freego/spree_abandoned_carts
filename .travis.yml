@@ -1,0 +1,10 @@
+language: ruby
+rvm:
+  - 2.2
+  - 2.3.3
+sudo: false
+cache: bundler
+before_script:
+  - bundle exec rake test_app
+script:
+  - bundle exec rspec spec

@@ -12,7 +12,7 @@ module Spree
       -> { abandoned.where(abandoned_cart_email_sent_at: nil) }
 
     def abandoned_cart_actions
-      AbandonedCartMailer.abandoned_cart_email(self).deliver
+      AbandonedCartMailer.abandoned_cart_email(self).deliver_now
       touch(:abandoned_cart_email_sent_at)
     end
 
