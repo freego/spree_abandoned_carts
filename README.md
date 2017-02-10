@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/ssnickolay/spree_abandoned_carts.svg?branch=3-1-stable)](https://travis-ci.org/ssnickolay/spree_abandoned_carts)
+[![Build Status](https://travis-ci.org/freego/spree_abandoned_carts.svg?branch=master)](https://travis-ci.org/ssnickolay/spree_abandoned_carts)
 
 SpreeAbandonedCarts
 ===================
@@ -49,7 +49,7 @@ Spree::AbandonedCartService.perform
 or use the auto processing solution (based on Sidekiq):
 
 ```ruby
-Spree::AbandonedCartWorker.perfrom
+Spree::AbandonedCartWorker.perform
 ```
 
 To modify the email, you just have to override `Spree.t(:abandoned_cart_subject)`
