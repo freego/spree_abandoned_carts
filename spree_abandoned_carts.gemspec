@@ -16,15 +16,15 @@ Gem::Specification.new do |s|
   s.require_path = 'lib'
   s.requirements << 'none'
 
-  s.add_dependency 'spree_core', '~> 3.1'
+  s.add_dependency 'spree_core', '>= 3.1.0', '< 5.0'
 
   s.add_development_dependency 'database_cleaner'
   s.add_development_dependency 'factory_girl', '~> 4.5'
   s.add_development_dependency 'ffaker'
-  s.add_development_dependency 'rspec-rails', '~> 3.3'
+  s.add_development_dependency 'rspec-rails'
   s.add_development_dependency 'simplecov'
-  s.add_development_dependency 'coffee-rails', '~> 4.0.0'
-  s.add_development_dependency 'sass-rails', '~> 5.0.0'
+  s.add_development_dependency 'coffee-rails'
+  s.add_development_dependency 'sass-rails'
   s.add_development_dependency 'pry-rails', '>= 0.3.2'
   s.add_development_dependency 'sqlite3'
 end
