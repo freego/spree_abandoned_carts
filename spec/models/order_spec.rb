@@ -6,7 +6,7 @@ RSpec.describe Spree::Order do
     let!(:fresh_order) { create(:order, item_total: 100) }
     let!(:empty_order) { create(:order, updated_at: abandoned_time, item_total: 0) }
     let!(:order_without_email) do
-      create(:order, updated_at: abandoned_time, item_total: 100).update_attributes(email: nil)
+      create(:order, updated_at: abandoned_time, item_total: 100).update(email: nil)
     end
 
     subject { described_class.abandoned }
@@ -46,7 +46,7 @@ RSpec.describe Spree::Order do
     end
 
     context 'when user has a new order' do
-      before { create(:order).update_attributes(email: abandoned_order.email) }
+      before { create(:order).update(email: abandoned_order.email) }
 
       it { is_expected.to be_falsey }
     end
